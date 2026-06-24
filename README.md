@@ -21,4 +21,4 @@ docker ps
 
 ## Health Check
 
-http://localhost/health
+http://localhost:8000/health
