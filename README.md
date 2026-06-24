@@ -9,7 +9,7 @@
 
 ## Run
 
-docker compose up -d
+docker compose up -d --build
 
 ## Stop
 
@@ -19,6 +19,11 @@ docker compose down
 
 docker ps
 
+## Check app output
+
+http://localhost:8000
+
 ## Health Check
 
 http://localhost:8000/health
+
