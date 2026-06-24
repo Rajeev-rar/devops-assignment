@@ -1,4 +1,4 @@
-name: Auto Deploy to EC2
+name: Deploy
 
 on:
   push:
@@ -10,20 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Build Docker Image
-        run: docker build -t devops-assignment ./app
-
-      - name: Deploy to EC2
+      - name: Test SSH Connection
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
+          debug: true
           script: |
-            cd ~/devops-assignment
-            git pull origin main
-            sudo docker compose down
-            sudo docker compose up -d --build
+            echo "Connected Successfully"
+            whoami
+            hostname
