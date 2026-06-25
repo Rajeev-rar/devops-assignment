@@ -10,7 +10,7 @@ app = FastAPI()
 @app.get("/")
 def home():
     logger.info("Home endpoint called")
-    return {"message":"Good Evening Rajeev"}
+    return {"message":"Good Morning Rajeev"}
 
 @app.get("/health")
 def health():
